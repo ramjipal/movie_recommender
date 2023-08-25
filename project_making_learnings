@@ -1,0 +1,22 @@
+there are three types of Recommender system
+1. content based:  the recommendations are made based on the similarity between the content or attributes of the items.
+2. collaborative filtering:Collaborative recommendation is a method of recommendation that suggests items to users based on the preferences and behaviors of other like users.
+3. hybrid (uses both system)
+
+outline:
+data
+preprocessing
+model
+deployment into website
+
+1. preprocessing
+remove all the unusefull columns
+convert the list of dictionaries into tags
+merging the tags to make a whole paragraph
+
+2.how to design a model
+
+converting the text into vector called text vectorization.
+do the stemming
+euclidean distance(tip to tip) and cosine distance(angle)
+euclidean distance fail in high dimensional data
