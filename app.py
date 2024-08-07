@@ -3,13 +3,17 @@ import pickle
 import pandas as pd
 import requests
 from PIL import Image
+import bz2file as bz2
 
+def decompress_pickle(file):
+    data = bz2.BZ2File(file, 'rb')
+    data = pickle.load(data)
+    return data
 
-
-def fetch_poster(movie_id):
-    response = requests.get("https://api.themoviedb.org/3/movie/{}?api_key=0a448fc5d37bcbd887f8d411ee5ffe65&language=en-US&external_source=imdb_id".format(movie_id))
+def fetch_poster(movie_title):
+    response = requests.get("http://www.omdbapi.com/?t={}&apikey=18744db8".format(movie_title))
     data = response.json()
-    return "http://image.tmdb.org/t/p/w500"+data['poster_path']
+    return data['Poster']
 
 
 def recommend(movie):
@@ -19,15 +23,14 @@ def recommend(movie):
     recommended_movies = []
     recommended_m_poster = []
     for j in movie_list:
-        movie_id = movies_df.iloc[j[0]]['movie_id']
-        print(movie_id)
+        movie_title = movies_df.iloc[j[0]]['title']
         recommended_movies.append(movies_df.iloc[j[0]].title)
-        recommended_m_poster.append(fetch_poster(movie_id))
+        recommended_m_poster.append(fetch_poster(movie_title))
     return recommended_movies, recommended_m_poster
 
 
-movies_df = pickle.load(open('movie.pkl', 'rb'))
-similarity = pickle.load(open('similarity.pkl', 'rb'))
+movies_df = pd.read_pickle('movie.pkl')
+similarity = decompress_pickle("similarity.pkl.bz2")
 movies_lst = movies_df['title'].values
 st.title("Best Movie Recommender")
 
