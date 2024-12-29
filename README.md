@@ -13,7 +13,10 @@ This **Movie Recommendation System** is a web application powered by machine lea
 - **Machine Learning**: `scikit-learn`, `numpy`, `pandas`  
 - **Web Framework**: Streamlit  
 - **APIs**: For fetching movie posters  
-- **Deployment**: Multi-device accessibility via Streamlit  
+- **Deployment**: Multi-device accessibility via Streamlit
+
+## Access the Website:
+click on link: [Movie Recommendation System](https://movierecommender-contentbased.streamlit.app/)  
 
 ## How to Use  
 1. Clone the repository:  
