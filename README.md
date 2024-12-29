@@ -17,6 +17,7 @@ This **Movie Recommendation System** is a web application powered by machine lea
 
 ## Access the Website:
 click on link: [Movie Recommendation System](https://movierecommender-contentbased.streamlit.app/)  
+ note: The website will take some time to open please click on wake up app 😊
 
 ## How to Use  
 1. Clone the repository:  
